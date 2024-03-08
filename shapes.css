@@ -1,0 +1,103 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark light;
+}
+
+:root {
+  --body-bg: hsl(0, 0%, 13%);
+}
+
+body {
+  background: var(--body-bg);
+  font-family: system-ui;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  margin: 0;
+  color: white;
+}
+
+.wrapper {
+  max-width: 50rem;
+  margin-left: auto;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+.site-title {
+  font-size: 3rem;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.25rem;
+}
+
+section {
+  padding-block: 5rem;
+}
+
+/* DIAGONAL */
+.diagonal {
+  position: relative;
+  isolation: isolate;
+}
+
+.diagonal::after {
+  content: "";
+  background-image: linear-gradient(45deg, #12c2e9, #72bedb, #d266e0);
+  position: absolute;
+  inset: 0;
+  transform: skewY(-1deg);
+  z-index: -1;
+}
+
+/* SPIKES */
+.spikes {
+  --spikes-bg: var(--body-bg);
+  --spike-width: 50px;
+  --spike-heigth: 10px;
+  position: relative;
+  color: black;
+  background: linear-gradient(to right, #fdc830, #f37335);
+}
+
+.spikes::before,
+.spikes::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: var(--spike-heigth);
+  background: var(--spikes-bg);
+  mask-image: url("assets/triangle.svg");
+  mask-size: var(--spike-width) var(--spike-heigth);
+  /* -webkit-mask-repeat: repeat-x; */
+}
+
+.spikes::before {
+  top: 0;
+}
+
+.spikes::after {
+  bottom: 0;
+  transform: rotate(0.5turn);
+}
+
+/* WAVY */
+.wavy {
+  background: linear-gradient(45deg, #12c2e9, #72bedb, #d266e0);
+  --mask: radial-gradient(54.79px at 50% 73.75px, #000 99%, #0000 101%)
+      calc(50% - 50px) 0/100px 51% repeat-x,
+    radial-gradient(54.79px at 50% -48.75px, #0000 99%, #000 101%) 50% 25px/100px
+      calc(51% - 25px) repeat-x,
+    radial-gradient(54.79px at 50% calc(100% - 73.75px), #000 99%, #0000 101%)
+      calc(50% - 50px) 100%/100px 51% repeat-x,
+    radial-gradient(54.79px at 50% calc(100% + 48.75px), #0000 99%, #000 101%)
+      50% calc(100% - 25px) / 100px calc(51% - 25px) repeat-x;
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+}

@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fefefe;
+  flex-direction: column;
+  gap: 50px;
+  min-height: 100vh;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.div-1,
+.div-2 {
+  background-color: brown;
+  color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+.div-1 {
+  /* transition-property: padding;
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
+  transition-delay: 0.3s; */
+  transition: padding 0.3s ease 0.3s;
+}
+
+.div-1:hover {
+  padding: 20px 50px;
+  /* background-color: blueviolet; */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .div-1 {
+    transition: none;
+  }
+}
